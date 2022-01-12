@@ -1,0 +1,190 @@
+/*****************************************************
+                         VARS                           
+*****************************************************/
+/*****************************************************
+                         BASE STYLES                           
+*****************************************************/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  font-size: 14px;
+  font-family: "Raleway", sans-serif;
+  margin: 0;
+  background: url("./../img/bg-desktop.png") bottom right #0c122c no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+}
+
+/*****************************************************
+                         LEFT AND RIGHt                           
+*****************************************************/
+main {
+  display: flex;
+  align-items: flex-end;
+  gap: 30px;
+  color: white;
+  margin: 0rem 1rem 2rem;
+}
+
+/*****************************************************
+                         LEFT PART                           
+*****************************************************/
+.left {
+  display: flex;
+  flex-direction: column;
+  background: #1d2c67;
+  padding: 2rem 5rem 2rem 2rem;
+  border-radius: 0.5rem 60px 0.5rem 0.5rem;
+  min-width: 350px;
+}
+.left__overlay {
+  padding: 0.6rem;
+  background: #0c122c;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+.left__logo {
+  margin-bottom: 1.5rem;
+}
+.left__options {
+  display: flex;
+  gap: 10px;
+}
+.left__image {
+  width: 25px;
+  height: auto;
+}
+.left__image:first-child {
+  width: 21px;
+}
+
+.right {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: #1d2c67;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  min-width: 400px;
+}
+.right__current_space {
+  font-weight: 700;
+  font-size: 2rem;
+}
+.right__current_space_text {
+  color: #848794;
+}
+.right__usage {
+  font-weight: 400;
+  color: #dddbff;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.right__range {
+  display: flex;
+  flex-direction: column;
+}
+.right__indicator {
+  width: 100%;
+  height: 10px;
+  background: #0c122c;
+  border-radius: 1rem;
+  margin-bottom: 0.6rem;
+}
+.right__filled {
+  background: linear-gradient(to right, #ffa399, #ff4d97);
+  width: 50%;
+  height: 100%;
+  z-index: 2;
+  position: relative;
+  border-radius: 2rem;
+}
+.right__filled::before {
+  content: "";
+  position: absolute;
+  left: calc(100% - 10px);
+  width: 7px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  height: 7px;
+  background: white;
+  z-index: 3;
+}
+.right__interval {
+  display: flex;
+  justify-content: space-between;
+  color: #dddbff;
+  font-size: 0.8rem;
+}
+.right__remaining {
+  position: absolute;
+  top: -3rem;
+  right: 10%;
+  background: white;
+  color: black;
+  padding: 1rem;
+  border-radius: 0.5rem 0.5rem 0rem 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.right__remaining::before {
+  content: "";
+  position: absolute;
+  left: calc(100% - 20px);
+  top: calc(100% - 20px);
+  width: 0;
+  height: 0;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-right: 20px solid white;
+}
+.right__highlight {
+  font-weight: bold;
+  color: white;
+}
+
+/*****************************************************
+                         BREAKPOINTS                           
+*****************************************************/
+@media screen and (max-width: 800px) {
+  .left, .right {
+    width: 100%;
+    min-width: unset;
+  }
+}
+@media screen and (max-width: 600px) {
+  body {
+    background: url("./../img/bg-mobile.png");
+    background-size: cover;
+  }
+
+  main {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .right__remaining {
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 100%;
+    border-radius: 1rem;
+    justify-content: center;
+    align-items: center;
+  }
+  .right__remaining::before {
+    display: none;
+  }
+}/*# sourceMappingURL=main.css.map */

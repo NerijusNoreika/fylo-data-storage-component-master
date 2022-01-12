@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./css/main.css">
+    <title>Frontend Mentor | Fylo data storage component</title>
+
+</head>
+
+<body>
+    <main id="app">
+        <div class="left">
+            <div class="left__logo">
+                <img class="left__logo_img" src="./img/logo.svg" alt="">
+            </div>
+            <div class="left__options">
+                <div class="left__overlay"><img class="left__image" src="./img/icon-document.svg" alt=""></div>
+                <div class="left__overlay"><img class="left__image" src="./img/icon-folder.svg" alt=""></div>
+                <div class="left__overlay"><img class="left__image" src="./img/icon-upload.svg" alt=""></div>
+            </div>
+        </div>
+        <div class="right">
+
+            <span class="right__usage">You’ve used <span class="right__highlight">{{ used }} GB</span> of your storage</span>
+
+
+            <div class="right__remaining">
+                <span class="right__current_space">{{ remainingSpace }}</span>
+                <div class="right__current_space_text">GB Left</div>
+            </div>
+
+            <div class="right__range">
+                <div class="right__indicator">
+                    <div :style="{ width: filledSpace + '%' }"  class="right__filled"></div>
+                </div>
+                <div class="right__interval">
+                    <div class="right__space"> {{ min }} GB</div>
+                    <div class="right__space">{{ max }} GB</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>

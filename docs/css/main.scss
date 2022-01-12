@@ -1,0 +1,232 @@
+/*****************************************************
+                         VARS                           
+*****************************************************/
+
+$defaultSize: 14px;
+
+
+$primaryGradientFirst: hsl(6, 100%, 80%);
+$primaryGradientSecond: hsl(335, 100%, 65%);
+
+
+$paleBlue: hsl(243, 100%, 93%);
+$grayishBlue: hsl(229, 7%, 55%);
+$darkBlue: hsl(228, 56%, 26%);
+$veryDarkBlue: hsl(229, 57%, 11%);
+
+
+/*****************************************************
+                         BASE STYLES                           
+*****************************************************/
+
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+
+body {
+    font-size: $defaultSize;
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+    background: url('./../img/bg-desktop.png') bottom right $veryDarkBlue no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+}
+
+
+/*****************************************************
+                         LEFT AND RIGHt                           
+*****************************************************/
+
+main {
+    display: flex;
+    align-items: flex-end;
+    gap: 30px;
+    color: white;
+    margin: 0rem 1rem 2rem;
+
+}
+
+/*****************************************************
+                         LEFT PART                           
+*****************************************************/
+
+
+
+.left {
+    display: flex;
+    flex-direction: column;
+    background: $darkBlue;
+    padding: 2rem 5rem 2rem 2rem;
+    border-radius: .5rem 60px .5rem .5rem;
+    min-width: 350px;
+
+    &__overlay {
+        padding: .6rem;
+        background: $veryDarkBlue;
+        border-radius: .5rem;
+        display: flex;
+        align-items: center;
+    }
+    &__logo {
+        margin-bottom: 1.5rem;
+    }
+ 
+    &__options {
+        display: flex;
+        // align-items: flex-start;
+        gap: 10px;
+    }
+    
+    &__image {
+        width: 25px;
+        height: auto;
+    }
+
+    &__image:first-child {
+        width: 21px;
+    }
+}
+
+.right {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: $darkBlue;
+    padding: 2rem;
+    border-radius: .5rem;
+    min-width: 400px;
+
+    &__current_space {
+        font-weight: 700;
+        font-size: 2rem;
+}
+
+    &__current_space_text {
+        color: $grayishBlue;
+    }
+
+    &__usage {
+        font-weight: 400;
+        color: $paleBlue;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    &__range {
+        display: flex;
+        flex-direction: column;
+    }
+    &__indicator {
+        width: 100%;
+        height: 10px;
+        background: $veryDarkBlue;
+        border-radius: 1rem;
+        margin-bottom: .6rem;
+
+       
+    }
+    &__filled {
+        background: linear-gradient(to right, $primaryGradientFirst, $primaryGradientSecond);
+        width: 50%;
+        height: 100%;
+        z-index: 2;
+        position: relative;
+        border-radius: 2rem;
+        &::before {
+            content: '';
+            position: absolute;
+            left: calc(100% - 10px);
+            width: 7px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 50%;
+            height: 7px;
+            background: white;
+            z-index: 3;
+        }
+    }
+    &__interval {
+        display: flex;
+        justify-content: space-between;
+        color: $paleBlue;
+        font-size: 0.8rem;
+    }
+
+    &__remaining {
+        position: absolute;
+        top: -3rem;
+        right: 10%;
+        background: white;
+        color: black;
+        padding: 1rem;
+        border-radius: .5rem .5rem 0rem .5rem;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        
+        &::before {
+            content: '';
+            position: absolute;
+            left: calc(100% - 20px);
+            top: calc(100% - 20px);
+            width: 0;
+            height: 0;
+            border-top: 20px solid transparent;
+            border-bottom: 20px solid transparent;
+            border-right: 20px solid white;
+        }
+    }
+    &__highlight {
+        font-weight: bold;
+        color: white;
+    }
+}
+
+
+/*****************************************************
+                         BREAKPOINTS                           
+*****************************************************/
+@media screen and (max-width: 800px) {
+    .left, .right {
+        width: 100%;
+        min-width: unset;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    body {
+        background: url('./../img/bg-mobile.png');
+        background-size: cover;
+    }
+    main {
+        flex-direction: column;
+        width: 100%;
+    }
+  
+
+    .right {
+        &__remaining {
+            transform: translate(-50%, -50%);
+            left: 50%;
+            top: 100%;
+            border-radius: 1rem;
+            justify-content: center;
+            align-items: center;
+
+            &::before {
+                display: none;
+            }
+        }
+    }
+}
