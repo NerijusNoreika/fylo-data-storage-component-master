@@ -89,7 +89,6 @@ main {
   font-weight: 400;
   color: #dddbff;
   margin-bottom: 1rem;
-  text-align: center;
 }
 .right__range {
   display: flex;
@@ -186,5 +185,8 @@ main {
   }
   .right__remaining::before {
     display: none;
+  }
+  .right__usage {
+    text-align: center;
   }
 }/*# sourceMappingURL=main.css.map */

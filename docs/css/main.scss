@@ -119,7 +119,6 @@ main {
         font-weight: 400;
         color: $paleBlue;
         margin-bottom: 1rem;
-        text-align: center;
     }
 
     &__range {
@@ -227,6 +226,10 @@ main {
             &::before {
                 display: none;
             }
+        }
+
+        &__usage {
+            text-align: center;
         }
     }
 }
